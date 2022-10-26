@@ -1,0 +1,18 @@
+<br>
+<span>Escribe el nombre y extension de la imagen que desear ver: </span>
+<br>
+
+<input type="textarea" #imageName>
+<button (click)="cargarNombre(imageName.value, imageName)">Buscar</button>
+<br>
+<button *ngIf="fotorecibida != ''" (click)="limpiarFotorecibida(imageName)">Limpiar</button>
+
+<br *ngIf="fotorecibida != ''">
+<br>
+
+<div *ngIf="fotorecibida != ''">
+    <img [src]="fotorecibida" alt="">
+</div>
+<div *ngIf="imagenotfound != ''" style="font-weight: bold; color: rgb(255, 0, 0);">
+    <span>{{imagenotfound}}</span>
+</div>

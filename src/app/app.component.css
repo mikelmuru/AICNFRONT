@@ -1,0 +1,23 @@
+span {
+  margin: auto;
+  font-size: xx-large;
+}
+h2 {
+  text-align: center;
+  margin: 1%;
+
+}
+#opciones {
+  display: flex;
+}
+#menu {
+  width: 30%;
+  border: 1px solid black;
+  text-align: center;
+}
+#resultado {
+  width: 70%;
+  border: 1px solid black;
+  text-align: center;
+  padding: 1%;
+}
