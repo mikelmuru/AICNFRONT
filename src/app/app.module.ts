@@ -5,11 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { GetImageComponent } from './get-image/get-image.component';
-import { PostImageComponent } from './post-image/post-image.component';
+import { GetImageComponent } from './componentes/get-image/get-image.component';
+import { PostImageComponent } from './componentes/post-image/post-image.component';
 import { MaterialModule } from './material/material.module';
 import { rutas } from './rutas/rutas.module';
-import { VistaInicioComponent } from './vista-inicio/vista-inicio.component';
+import { VistaInicioComponent } from './componentes/vista-inicio/vista-inicio.component';
 
 @NgModule({
   declarations: [
