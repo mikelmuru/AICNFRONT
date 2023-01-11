@@ -1,0 +1,23 @@
+<div id="tryapp">
+    <h2>PRUEBA LA APLICACION CON NUESTRAS IMAGENES</h2>
+    <div id="tryappcontenido">
+        <div id="galeriaimagenes" class="kk">
+            <p class="sticky-top">ELIGE UNA:</p>
+            <div *ngFor="let image of imageList;let i = index" class="kk">
+                <span>{{image.imagename}}</span>
+                <button (click)="evaluarImagen(image)">
+                    <img [src]="base64type + image.imagebytes" width="175px">
+                </button>
+                <br>
+            </div>
+        </div>
+        <div id="resultado" class="kk">
+            <mat-spinner *ngIf="cargando == true"></mat-spinner>
+
+            <div *ngIf="cargando == false" id="resultadoview">
+                <p>{{imagenresultado.imageresult}}</p>
+                <img [src]="base64type + imagenresultado.imagebytes" alt="">
+            </div>
+        </div>
+    </div>
+</div>

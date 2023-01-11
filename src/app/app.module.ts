@@ -10,21 +10,28 @@ import { PostImageComponent } from './componentes/post-image/post-image.componen
 import { MaterialModule } from './material/material.module';
 import { rutas } from './rutas/rutas.module';
 import { VistaInicioComponent } from './componentes/vista-inicio/vista-inicio.component';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TryAppComponent } from './componentes/try-app/try-app.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GetImageComponent,
     PostImageComponent,
-    VistaInicioComponent
+    VistaInicioComponent,
+    NavbarComponent,
+    TryAppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MaterialModule,
-    RouterModule.forRoot(rutas)
+    RouterModule.forRoot(rutas),
+    ReactiveFormsModule
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })

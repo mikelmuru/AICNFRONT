@@ -1,18 +1,75 @@
-<br>
-<span>Escribe el nombre y extension de la imagen que desear ver: </span>
-<br>
-
-<input type="textarea" #imageName>
-<button (click)="cargarNombre(imageName.value, imageName)">Buscar</button>
-<br>
-<button *ngIf="fotorecibida != ''" (click)="limpiarFotorecibida(imageName)">Limpiar</button>
-
-<br *ngIf="fotorecibida != ''">
-<br>
-
-<div *ngIf="fotorecibida != ''">
-    <img [src]="fotorecibida" alt="">
+<!-- VERSION CON ANGULAR MATERIAL Y BOOTSTRAP5 -->
+<div id="search">
+    <!-- <h2>BUSCA UN MELANOMA YA REGISTRADO:</h2> -->
+    <div id="searchbox">
+        <input class="form-control me-2" type="textarea" placeholder="Id, Nombre, Tipo de melanoma..." aria-label="Search" #imageName>
+        <button mat-icon-button id="searchbutton" class="button" (click)="cargarNombre(imageName.value, imageName)">
+            <mat-icon id="searchicon">search</mat-icon>
+        </button>
+    </div>
+    <p *ngIf="miLista.length > 0">RESULTADO</p>
+    <div *ngIf="miLista.length > 0" id="tablaresultado">
+        <table>
+            <tr class="titlerow">
+                <td class="idcol">ID</td>
+                <td>Imagen</td>
+                <td>Nombre Imagen</td>
+                <td>Tipo de Melanoma</td>
+                <td>Opciones Avanzadas</td>
+            </tr>
+            <tbody *ngFor="let image of miLista; let i = index">
+                <tr class="datarow">
+                    <td class="idcol">{{image.imageid}}</td>
+                    <td>
+                        <img src="{{base64type + image.imagebytes}}" width="150px">
+                    </td>
+                    <td>{{image.imagename}}</td>
+                    <td>{{image.imageresult}}</td>
+                    <td>
+                        <button mat-icon-button id="editbutton" class="button" (click)="editImage(i)">
+                            <mat-icon>create</mat-icon>
+                        </button>
+                        <button mat-icon-button id="deletebutton" class="button" (click)="deleteById(image.imageid)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="miLista.length == 0 && nombrefoto != ''">
+        <p class="notfound">
+            No se han encontrado resultados para: {{nombrefoto}}
+        </p>
+    </div>
+    <div id="opcionesavanzadas" *ngIf="hide">
+        <img src="{{base64type + miLista[idtarjeta].imagebytes}}" width="150px" id="imagentarjeta">
+        <p id="idtarjeta">#{{miLista[idtarjeta].imageid}}</p>
+        <div id="basicdata">
+            <div id="nombreresultado">
+                <span>Nombre:</span>
+                <br>
+                <input type="textarea" value="{{miLista[idtarjeta].imagename}}" class="tarjetadata">
+                <br>
+                <span>Resultado:</span>
+                <br>
+                <input type="textarea" disabled value="{{miLista[idtarjeta].imageresult}}" class="tarjetadata">
+            </div>
+            <div id="descripcion">
+                <span>Descripcion:</span>
+                <br>
+                <input type="textarea" value="Aqui va la descripcion" class="tarjetadata" size="60">
+            </div>
+        </div>
+        <div id="extradata">
+            <p>Created Date: {{miLista[idtarjeta].createddate | date:'short'}}</p>
+            <p>Last Modify Date: {{miLista[idtarjeta].lastmoddate | date:'short'}}</p>
+        </div>
+        <div id="opcionestarjeta">
+            <button mat-icon-button class="button">
+                <mat-icon>done</mat-icon>
+            </button>
+        </div>
+    </div>
 </div>
-<div *ngIf="imagenotfound != ''" style="font-weight: bold; color: rgb(255, 0, 0);">
-    <span>{{imagenotfound}}</span>
-</div>
+<!-- FIN DE LA VERSION CON ANGULAR MATERIAL Y BOOTSTRAP5 -->

@@ -1,7 +1,79 @@
-img {
-    margin-right: 100%;
+#evaluar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
-.resultado {
+.botonprimario {
+    width: 25%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+.botonprimario:hover, .removeimage:hover {
+    background-color: rgba(122, 43, 226, 0.144);
+}
+
+.cajaprimaria {
+    width: 75%;
+    height: 80%;
+    /* overflow: auto; */
+    /* border: 1px solid red; */
+}
+
+#loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+mat-accordion, mat-expansion-panel {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+
+    /* overflow: auto; */
+}
+
+mat-expansion-panel-header,
+mat-expansion-panel-header:hover {
+    /* height: 20%; */
+    margin: 0px;
+    /* border: 1px solid green; */
+    /* background-color: rgb(250, 244, 235); */
+}
+
+#preview {
+    height: 70%;
+    max-height: 300px;
+    padding: 0px;
+    padding-left: 2%;
+    /* border: 1px solid green; */
+    margin: 0px;
+    overflow: auto;
+    background-color: rgb(250, 244, 235);
+}
+
+.previewdata {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+.imagenpreview {
+    margin-left: .5rem;
+}
+
+.removeimage {
+    margin-left: .5rem;
+}
+
+#resultado {
+    justify-content: center;
+    text-align: center;
+}
+
+.resultadomsg {
     color: red;
 }
